@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: inventory-service
+  datasource:
+    url: jdbc:mariadb://localhost:3306/inventory_db
+    username: root
+    password: root
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  cloud:
+    function:
+      definition: paymentProcessor;orderCancelledConsumer
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        paymentProcessor-in-0:
+          destination: payment-events
+        paymentProcessor-out-0:
+          destination: inventory-events
+        orderCancelledConsumer-in-0:
+          destination: order-events
+
+server:
+  port: 8083

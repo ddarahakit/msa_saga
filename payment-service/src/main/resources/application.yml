@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: payment-service
+  datasource:
+    url: jdbc:mariadb://localhost:3306/payment_db
+    username: root
+    password: root
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  cloud:
+    function:
+      definition: orderProcessor;orderCancelledConsumer
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        orderProcessor-in-0:
+          destination: order-events
+        orderProcessor-out-0:
+          destination: payment-events
+        orderCancelledConsumer-in-0:
+          destination: order-events
+
+server:
+  port: 8082

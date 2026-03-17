@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: order-service
+  datasource:
+    url: jdbc:mariadb://localhost:3306/order_db
+    username: root
+    password: root
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  cloud:
+    function:
+      definition: paymentConsumer;inventoryConsumer
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        orderCreated-out-0:
+          destination: order-events
+        orderCancelled-out-0:
+          destination: order-events
+        paymentConsumer-in-0:
+          destination: payment-events
+        inventoryConsumer-in-0:
+          destination: inventory-events
+
+server:
+  port: 8081

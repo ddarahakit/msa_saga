@@ -1,0 +1,47 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2026-03-17T12:45:00.000Z",
+  "activeFeatures": ["msa-saga-pattern"],
+  "primaryFeature": "msa-saga-pattern",
+  "features": {
+    "msa-saga-pattern": {
+      "status": "ANALYZE",
+      "path": "docs/03-analysis/msa-saga-pattern.analysis.md",
+      "phase": "analyze",
+      "progress": 90,
+      "updatedAt": "2026-03-17T12:45:00.000Z",
+      "matchRate": 97
+    }
+  },
+  "pipeline": {
+    "currentPhase": 4,
+    "level": "Enterprise",
+    "phaseHistory": [
+      {
+        "phase": "plan",
+        "feature": "msa-saga-pattern",
+        "timestamp": "2026-03-17T11:45:00.000Z"
+      },
+      {
+        "phase": "design",
+        "feature": "msa-saga-pattern",
+        "timestamp": "2026-03-17T11:55:00.000Z"
+      },
+      {
+        "phase": "do",
+        "feature": "msa-saga-pattern",
+        "timestamp": "2026-03-17T12:30:00.000Z"
+      },
+      {
+        "phase": "analyze",
+        "feature": "msa-saga-pattern",
+        "timestamp": "2026-03-17T12:45:00.000Z"
+      }
+    ]
+  },
+  "session": {
+    "startedAt": "2026-03-17T11:31:21.845Z",
+    "onboardingCompleted": true,
+    "lastActivity": "2026-03-17T12:45:00.000Z"
+  }
+}
